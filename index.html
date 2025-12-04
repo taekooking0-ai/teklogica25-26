@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html ng-app="teklogicaApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TEKLOGICA 2025</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* 🌈 MULTI COLOR BACKGROUND */
+body{
+  background: linear-gradient(
+    135deg,
+    #ff6a88,
+    #ff9a44,
+    #fbc531,
+    #4cd137,
+    #00cec9,
+    #a29bfe,
+    #e84393
+  );
+  background-size: 600% 600%;
+  animation: bgMove 18s ease infinite;
+  color:#fff;
+  min-height:100vh;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* 🌟 TITLE */
+h1{
+  text-align:center;
+  font-family:'Fredoka One',cursive;
+  font-size:4rem;
+  padding:30px 10px;
+  background: linear-gradient(
+    to right,
+    #ff0844,
+    #ffb199,
+    #f6d365,
+    #96e6a1,
+    #74ebd5,
+    #9face6,
+    #fbc2eb
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+h3{
+  text-align:center;
+  font-family:'Fredoka One',cursive;
+  font-size:2rem;
+  padding:30px 10px;
+  background: linear-gradient(
+    to right,
+    #ff0844,
+    #ffb199,
+    #f6d365,
+    #96e6a1,
+    #74ebd5,
+    #9face6,
+    #fbc2eb
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+/* DAY CARDS */
+.posters{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  padding:25px;
+  flex-wrap:wrap;
+}
+
+.poster{
+  width:420px;
+  height:520px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  cursor:pointer;
+  backdrop-filter: blur(15px);
+  background:rgba(255,255,255,0.15);
+  border:2px solid rgba(255,255,255,0.15);
+  box-shadow:0 0 15px #ff9ff3, 0 0 25px #feca57;
+}
+
+.poster img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:0;
+  display:block;
+}
+
+/* BUTTONS */
+.day-btn{
+  background:linear-gradient(135deg,#ff416c,#ff4b2b,#fbc531,#48dbfb);
+  color:#fff;
+  border:none;
+  padding:15px 40px;
+  margin:10px 15px;
+  border-radius:50px;
+  font-size:1.2rem;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(0,0,0,.5);
+  transition:0.3s;
+}
+
+.day-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #fff;
+}
+
+/* CONTENT */
+.content{
+  width:90%;
+  max-width:900px;
+  margin:40px auto;
+  padding:25px;
+  border-radius:25px;
+  backdrop-filter: blur(15px);
+  background:rgba(255,255,255,0.15);
+  box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* EVENTS */
+.event-list ul{list-style:none;}
+
+.event-list li{
+  margin:15px 0;
+  padding:18px;
+  border-radius:15px;
+  background: linear-gradient(
+    135deg,
+    #ff7675aa,
+    #fdcb6eaa,
+    #00cec9aa,
+    #a29bfeaa
+  );
+  border-left:5px solid #fff;
+}
+
+/* ===== GENERAL RULES STYLE ===== */
+
+.rules-container ul{
+  padding:0;
+}
+
+.rules-container ul li{
+  list-style:none;
+  background:rgba(255,255,255,0.12);
+  padding:14px;
+  margin:10px 0;
+  border-left:5px solid white;
+  border-radius:8px;
+  transition:0.3s;
+}
+
+.rules-container ul li:hover{
+  background:white;
+  color:black;
+  transform:translateX(6px);
+}
+
+/* ==== EVENT RULES ==== */
+.rules ul{
+  padding:0;
+}
+
+.rules ul li{
+  list-style:none;
+  background:rgba(0,0,0,0.3);
+  padding:12px;
+  margin:6px 0;
+  border-radius:8px;
+  border-left:4px solid #ffeaa7;
+}
+
+/* GLOW TEXT */
+.glow{
+  text-align:center;
+  font-size:30px;
+  margin:35px 0 25px;
+  text-shadow:0 0 6px white, 0 0 15px #ffeaa7;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  h1{font-size:2.5rem;}
+  .poster{width:95%; height:400px;}
+  .content{padding:20px;}
+}
+</style>
+</head>
+
+<body ng-controller="MainCtrl">
+
+<h3>MIRANG REPRESENTS</h3>
+<h1>TEKLOGICA 2025-26</h1>
+
+<!-- MAIN POSTER -->
+<div class="posters">
+  <div class="poster">
+    <img src="flyer.png">
+  </div>
+</div>
+
+<!-- ✅ GENERAL RULES -->
+<div class="rules-container">
+  <h2 class="glow">GENERAL RULES</h2>
+  <ul>
+    <li ng-repeat="rule in generalRules">{{ rule }}</li>
+  </ul>
+</div>
+
+<!-- DAY BUTTONS -->
+<div style="text-align:center; margin-top:30px;">
+  <button class="day-btn" ng-click="selectDay(1)">DAY 1</button>
+  <button class="day-btn" ng-click="selectDay(2)">DAY 2</button>
+</div>
+
+<!-- EVENTS + RULES -->
+<div class="content" ng-if="selectedDay">
+
+  <h2 class="glow">
+    {{selectedDay == 1 ? 'DAY 1 EVENTS' : 'DAY 2 EVENTS'}}
+  </h2>
+
+  <div class="event-list">
+    <ul>
+      <li ng-repeat="event in currentEvents()">
+        <strong>{{event.name}}</strong><br>
+        {{event.time}} | {{event.venue}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="rules">
+    <h2 class="glow">RULES & GUIDELINES</h2>
+
+    <div ng-repeat="event in currentEvents()">
+      <h3>{{event.name}}</h3>
+      <ul>
+        <li ng-repeat="r in event.rules">{{r}}</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
